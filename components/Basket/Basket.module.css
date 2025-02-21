@@ -1,0 +1,24 @@
+.root {
+  position: relative;
+}
+
+.root span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  font-size: 12px;
+  right: -5px;
+  top: -5px;
+}
+
+@media (min-width: 640px) {
+  .root span {
+    display: none;
+  }
+}

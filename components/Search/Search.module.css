@@ -1,0 +1,75 @@
+.root {
+  display: none;
+  align-items: center;
+  position: relative;
+  min-width: 20px;
+  cursor: pointer;
+}
+
+.visible {
+  display: flex;
+  width: 100%;
+}
+
+.visible > .input {
+  opacity: 1;
+  width: 100%;
+  padding: 5px;
+  padding-left: 28px;
+}
+
+.visible > .loupe {
+  pointer-events: none;
+  top: 6px;
+  left: 6px;
+}
+
+.visible > .loupe svg {
+  transform: scale(0.9);
+}
+
+.visible > .loupe svg path:first-child {
+  fill: var(--gray-dark);
+}
+
+.input {
+  opacity: 0;
+  height: 32px;
+  width: 0;
+  border-radius: 4px;
+  background: var(--gray-light);
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.loupe {
+  position: absolute;
+}
+
+@media (min-width: 640px) {
+  .root {
+    display: flex;
+  }
+
+  .root.visible > .input {
+    opacity: 1;
+    width: 288px;
+    min-width: 135px;
+    padding: 5px;
+    padding-left: 28px;
+  }
+
+  .visible > .loupe {
+    pointer-events: none;
+    top: 6px;
+    left: 6px;
+  }
+
+  .visible > .loupe svg {
+    transform: scale(0.9);
+  }
+
+  .visible > .loupe svg path:first-child {
+    fill: var(--gray-dark);
+  }
+}
