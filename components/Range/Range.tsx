@@ -25,8 +25,10 @@ export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMin
     setMaxWidthProgress(ref.current?.clientWidth || 0)
   }, [])
 
-  const posMin = (minValue * maxWidthProgress) / max
-  const posMax = maxWidthProgress - (maxValue * maxWidthProgress) / max
+  const percent = maxWidthProgress / (max - min)
+  
+  const posMin = (minValue - min) * percent
+  const posMax = maxWidthProgress - ((maxValue - min) * percent) 
 
   return <div className={s.root} ref={ref}>
     <input 
