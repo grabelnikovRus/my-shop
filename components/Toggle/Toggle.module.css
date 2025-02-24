@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-family: var(--font-dm);
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.btn {
+  position: relative;
+  width: 35px;
+  height: 22px;
+  background: var(--gray-light);
+  border: 1px solid var(--gray-dark);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--white);
+  height: 13px;
+  width: 13px;
+  top: 3px;
+  left: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+.active.btn {
+  background: var(--gray-dark);
+}
+
+.active.btn::before {
+  left: 3px;
+}
