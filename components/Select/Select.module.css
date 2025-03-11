@@ -1,0 +1,12 @@
+.root {
+  height: 52px;
+  border: 1px solid var(--gray-light);
+  border-radius: 5px;
+  padding: 12px 15px;
+}
+
+.options {
+  font: var(--font-dm);
+  font-size: 14px;
+  line-height: 22px;
+}
