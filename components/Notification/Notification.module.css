@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  gap: 16px;
+  bottom: -60px;
+  border-radius: 5px 5px 0 0;
+  background: var(--gray-light);
+  width: calc(100% - 32px);
+  padding: 16px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.open {
+  bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .root {
+    width: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

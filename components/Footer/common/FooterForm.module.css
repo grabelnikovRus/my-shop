@@ -1,0 +1,12 @@
+.root {
+  width: 288px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon path {
+  fill: var(--accent);
+}
