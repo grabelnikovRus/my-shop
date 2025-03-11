@@ -46,9 +46,15 @@
   background: var(--black);
   transform: translateY(-50%);
   z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .values {
   position: absolute;
   top: 14px;
+}
+
+.init {
+  opacity: 1;
 }

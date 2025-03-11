@@ -1,7 +1,9 @@
 "use client";
 import { ChangeEventHandler, useLayoutEffect, useRef, useState } from "react";
-import s from "./Range.module.css";
 import { RangeProps } from "./types";
+import cn from "classnames";
+
+import s from "./Range.module.css";
 
 export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMinValue }, onChange }: RangeProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -27,9 +29,9 @@ export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMin
 
   const percent = maxWidthProgress / (max - min)
   
-  const posMin = (minValue - min) * percent
-  const posMax = maxWidthProgress - ((maxValue - min) * percent) 
-
+  const posMin = ((minValue - min) || 0.1)* percent
+  const posMax = maxWidthProgress - ((maxValue - min) * percent) || 0.1
+console.log(maxValue-min)
   return <div className={s.root} ref={ref}>
     <input 
       type="range"
@@ -48,7 +50,7 @@ export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMin
       className={s.input_min}
     />
     <div className={s.line} />
-    <div className={s.progress} style={{ left: posMin + "px", right: posMax + "px"}}/> 
+    <div className={cn(s.progress, { [s.init]: posMin && posMax})} style={{ left: posMin + "px", right: posMax + "px" }}/> 
     <span className={s.values}>{minValue} - {maxValue}</span>
   </div>
 }
