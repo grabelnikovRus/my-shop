@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BasketLogo from "./basket.svg";
+import BasketLogo from "@/public/basket.svg";
 import { BasketProps } from "./types";
 
 import s from "./Basket.module.css";

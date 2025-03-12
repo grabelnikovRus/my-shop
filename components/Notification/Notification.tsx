@@ -15,7 +15,6 @@ export const Notification = ({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    console.log(isOpen);
     if (isOpen) {
       setVisible(true);
       setTimeout(() => setVisible(false), ms);

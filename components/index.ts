@@ -6,3 +6,4 @@ export { Notification } from "./Notification/Notification";
 export { Toggle } from "./Toggle/Toggle";
 export { Range } from "./Range/Range";
 export { Select } from "./Select/Select"
+export { CardProduct } from "./CardProduct/CardProduct"
