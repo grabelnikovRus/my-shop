@@ -5,7 +5,7 @@ interface ReviewsType {
   description: string
 }
 
-interface ProductType {
+export interface ProductType {
   name: string
   price: number
   description: string

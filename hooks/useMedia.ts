@@ -5,7 +5,7 @@ export const useMedia = () => {
   const [isDesktop, setIsDesktop] = useState(false)
 
   const setSize = () => {
-    const result = window.matchMedia("(min-width: 1024px)").matches;
+    const result = window.matchMedia("(min-width: 640px)").matches;
     setIsMobile(!result)
     setIsDesktop(result)
   }

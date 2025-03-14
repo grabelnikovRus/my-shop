@@ -2,9 +2,9 @@ export interface RangeProps {
   min: number
   max: number
   value: {
-    min: number
-    max: number
+    priceMax: number
+    priceMin: number
   }
   prefix?: string
-  onChange: ({max, min}: {max: number, min: number}) => void 
+  onChange: ({ priceMax, priceMin }: { priceMax: number, priceMin: number}) => void 
 }

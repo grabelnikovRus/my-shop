@@ -1,13 +1,16 @@
 import { FormCatalog } from "@/components/FormCatalog/FormCatalog";
 import { getFilter } from "@/rest/getFilter";
+import { getProducts } from "@/rest/getProducts";
 
 import s from "./page.module.css";
+import { CardProductList } from "@/components";
 
-export default async function Home(props) {
+type PostPage = Promise<{ searchParams: Record<string, string | string[] | undefined> }>;
+
+export default async function Home(props: PostPage) {
   const searchParams = await props.searchParams
-
-  console.log(searchParams)
   const initProps = await getFilter()
+  const data = await getProducts(searchParams)
 
   if (!initProps) return null;
 
@@ -15,11 +18,7 @@ export default async function Home(props) {
     <div className={s.page}>
       <h2 className={s.title}>Каталог товаров</h2>
       <FormCatalog initProps={initProps} className={s.form}/>
-      <ul className={s.list}>
-        <li>dsdsdsd</li>
-        <li>dsdsdsd</li>
-        <li>dsdsdsd</li>
-      </ul>
+      <CardProductList products={data?.products}/>
     </div>
   );
 }

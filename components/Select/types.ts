@@ -1,6 +1,6 @@
 export interface SelectProps {
   name: string;
-  value: number;
+  value: number | string;
   options: Array<{
     id: number
     name: string

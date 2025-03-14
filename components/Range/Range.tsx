@@ -8,7 +8,7 @@ import s from "./Range.module.css";
 export const Range = ({ 
   min, 
   max, 
-  value: { max: currentMaxValue, min: currentMinValue } = { min: 0, max: 0 }, 
+  value: { priceMax: currentMaxValue, priceMin: currentMinValue } = { priceMin: 0, priceMax: 0 }, 
   onChange,
   prefix
 }: RangeProps) => {
@@ -20,13 +20,13 @@ export const Range = ({
   const changeMinValue: ChangeEventHandler<HTMLInputElement> = (e) => {
     const val = Math.min(+e.target.value, maxValue)
     setMinValue(val)
-    onChange({ max: maxValue, min: val })
+    onChange({ priceMax: maxValue, priceMin: val })
   }
 
   const changeMaxValue: ChangeEventHandler<HTMLInputElement> = (e) => {
     const val = Math.max(+e.target.value, minValue)
     setMaxValue(val)
-    onChange({max: val, min: minValue})
+    onChange({ priceMax: val, priceMin: minValue})
   }
 
   useLayoutEffect(() => {

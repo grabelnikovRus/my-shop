@@ -6,7 +6,7 @@
   line-height: 22px;
   font-family: var(--font-dm);
 
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     font-size: 20px;
     line-height: 26px;
   }
@@ -16,6 +16,11 @@
   position: relative;
   height: 136px;
   width: 136px;
+
+  @media (min-width: 640px) {
+    height: 300px;
+    width: 300px;
+  }
 
   @media (min-width: 1024px) {
     height: 380px;
@@ -28,7 +33,7 @@
   font-size: 12px;
   line-height: 20px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     font-size: 20px;
     line-height: 26px;
   }
@@ -58,7 +63,7 @@
   color: var(--white);
   font-size: 12px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     top: 16px;
     left: 16px;
     line-height: 20px;

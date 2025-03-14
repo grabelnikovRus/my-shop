@@ -17,13 +17,11 @@ export const getQueryString = <T extends object>(
     }
 
     if (
-      (name === "search" && !value) ||
-      (name === "categories" && !value) ||
-      name === "price"
+      (name === "name" && !value) || name === "price"
     ) return
 
-    if (name === "discount") {
-      if (value) {
+    if (name === "discounted" || name === "categoryId") {
+      if (value && value !== "0") {
         params.set(name, value)
       } else {
         params.delete(name)

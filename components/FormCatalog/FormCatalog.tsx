@@ -10,10 +10,10 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { getQueryString } from "./getQueryString";
 
 const defaultValues = {
-  search: "",
-  categories: 0,
-  discount: false,
-  price: { min: 0, max: 0 }
+  name: "",
+  categoryId: "0",
+  discounted: false,
+  price: { priceMin: 0, priceMax: 0 }
 }
 
 type FormCatalogData = typeof defaultValues
@@ -28,7 +28,7 @@ export const FormCatalog = ({ initProps: { categories, maxPrice, minPrice }, cla
   const searchParams = useSearchParams()
 
   const state = watch();
-  
+
   useEffect(() => {
     setQueryString(getQueryString(state, searchParams))
   }, [searchParams, state])
@@ -38,12 +38,12 @@ export const FormCatalog = ({ initProps: { categories, maxPrice, minPrice }, cla
   }, [pathname, queryString, router])
 
   useEffect(() => {
-    setValue("price", { max: maxPrice, min: minPrice })
+    setValue("price", { priceMin: minPrice, priceMax: maxPrice })
   }, [maxPrice, minPrice, setValue])
 
   return (
     <form className={cn(s.root, className)}>
-      <Input {...register("search")} placeholder="Поиск..."/>
+      <Input {...register("name")} placeholder="Поиск..."/>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (
@@ -51,10 +51,10 @@ export const FormCatalog = ({ initProps: { categories, maxPrice, minPrice }, cla
             options={[{ id: 0, name: "Все категории" }, ...categories]}
             onChange={onChange}
             value={value}
-            name="categories"
+            name="categoryId"
           />
         )}
-        name="categories"
+        name="categoryId"
       />
       <Controller
         control={control}
@@ -74,12 +74,12 @@ export const FormCatalog = ({ initProps: { categories, maxPrice, minPrice }, cla
         render={({ field: { value } }) => (
           <Toggle 
             label="Со скидкой" 
-            onChange={(val) => setValue("discount", val)} 
+            onChange={(val) => setValue("discounted", val)} 
             value={value} 
-            name="discount"
+            name="discounted"
           />
         )}
-        name="discount"
+        name="discounted"
       />
     </form>
   )
