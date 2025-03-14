@@ -33,6 +33,17 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-family: var(--font-dm);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
 @media (min-width: 640px) {
   body {
     padding: 0 32px;

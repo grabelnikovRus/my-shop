@@ -1,2 +1,19 @@
-.root {
+.page {
+
+
+}
+
+.list {
+  width: 100%;
+  
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 90px 60px;
+    justify-content: center;
+  }
+
+  @media (min-width: 1300px) {
+    grid-template-columns: repeat(3, auto);
+  }
 }

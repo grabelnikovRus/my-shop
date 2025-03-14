@@ -6,7 +6,6 @@ export const useMedia = () => {
 
   const setSize = () => {
     const result = window.matchMedia("(min-width: 1024px)").matches;
-    console.log(result, window)
     setIsMobile(!result)
     setIsDesktop(result)
   }

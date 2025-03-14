@@ -1,6 +1,6 @@
 .root {
   position: relative;
-  height: 16px;
+  height: 20px;
   margin-bottom: 16px;
 }
 
@@ -42,7 +42,7 @@
 .progress {
   position: absolute;
   top: 50%;
-  height: 3px;
+  height: 2px;
   background: var(--black);
   transform: translateY(-50%);
   z-index: -1;
@@ -52,7 +52,11 @@
 
 .values {
   position: absolute;
-  top: 14px;
+  top: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: var(--font-dm);
+  color: var(--gray-dark);
 }
 
 .init {

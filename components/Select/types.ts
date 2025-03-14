@@ -1,8 +1,10 @@
 export interface SelectProps {
   name: string;
+  value: number;
   options: Array<{
-    value: string
-    label: string
+    id: number
+    name: string
   }>
+  onChange: (...event: unknown[]) => void;
   className?: string;
 }

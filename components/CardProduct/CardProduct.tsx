@@ -27,7 +27,7 @@ export const CardProduct = ({ name, price, img, discount }: CardProductProps) =>
         )}
       </span>
       <span>{name}</span>
-      <span className={s.price}>{price}</span>
+      <span className={s.price}>{price}$</span>
     </div>
   )
 }

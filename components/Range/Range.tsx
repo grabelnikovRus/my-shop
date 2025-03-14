@@ -5,7 +5,13 @@ import cn from "classnames";
 
 import s from "./Range.module.css";
 
-export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMinValue }, onChange }: RangeProps) => {
+export const Range = ({ 
+  min, 
+  max, 
+  value: { max: currentMaxValue, min: currentMinValue } = { min: 0, max: 0 }, 
+  onChange,
+  prefix
+}: RangeProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const [minValue, setMinValue] = useState(currentMinValue || min)
   const [maxValue, setMaxValue] = useState(currentMaxValue || max)
@@ -31,7 +37,7 @@ export const Range = ({ min, max, value: { max: currentMaxValue, min: currentMin
   
   const posMin = ((minValue - min) || 0.1)* percent
   const posMax = maxWidthProgress - ((maxValue - min) * percent) || 0.1
-console.log(maxValue-min)
+
   return <div className={s.root} ref={ref}>
     <input 
       type="range"
@@ -51,6 +57,6 @@ console.log(maxValue-min)
     />
     <div className={s.line} />
     <div className={cn(s.progress, { [s.init]: posMin && posMax})} style={{ left: posMin + "px", right: posMax + "px" }}/> 
-    <span className={s.values}>{minValue} - {maxValue}</span>
+    <span className={s.values}>{`${prefix} $${minValue} - $${maxValue}`}</span>
   </div>
 }

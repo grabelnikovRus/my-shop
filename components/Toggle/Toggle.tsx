@@ -1,29 +1,26 @@
 "use client"
-import { useEffect, useId, useState } from "react"
+import { useId } from "react"
 import { ToggleProps } from "./types"
 import cn from "classnames"
 
 import s from "./Toggle.module.css"
 
-export const Toggle = ({ label, onChange, defaulValue, value }: ToggleProps) => {
-  const [curValue, setCurValue] = useState(defaulValue ?? false)
+export const Toggle = ({ label, onChange, defaulValue, value, name }: ToggleProps) => {
   const id = useId()
-
-  const onClickToggle = () => {
-    onChange(!curValue)
-    setCurValue(!curValue)
-  }
-
-  useEffect(() => {
-    setCurValue(value)
-  }, [value])
 
   return (
     <div className={s.root}>
       <label htmlFor={id} className={s.label}>
         {label}
       </label>
-      <button id={id} className={cn(s.btn, { [s.active]: curValue })} onClick={onClickToggle}/>
+      <input 
+        type="checkbox" 
+        name={name} 
+        id={id} 
+        defaultChecked={defaulValue} 
+        className={cn(s.input, { [s.active]: value })} 
+        onClick={() => onChange(!value)}
+      />
     </div>
   )
 }
