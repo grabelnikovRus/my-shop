@@ -1,3 +1,4 @@
+import { limit } from "@/components/helpers/const"
 import { IProducts } from "@/interfaces/products"
 
 interface GetProductsProps extends URLSearchParams {
@@ -9,15 +10,20 @@ interface GetProductsProps extends URLSearchParams {
   offset?: string
 }
 
-export const getProducts = async (arg: GetProductsProps): Promise<IProducts | undefined>  => {
+export const getProducts = async (arg?: GetProductsProps): Promise<IProducts | undefined>  => {
   try {
-    const params = new URLSearchParams(arg)
+    const params = new URLSearchParams(arg?.toString() ?? {})
+
+    if (!params.has("offset")) params.set("offset", "0")
 
     const data = await fetch(
-      `${process.env.NEXT_PUBLIC_DOMAIN}/api-demo/products?limit=${6}&offset=${0}&${params.toString()}&`
+      `${process.env.NEXT_PUBLIC_DOMAIN}/api-demo/products?limit=${limit}&${params.toString()}`
     )
-console.log(data)
-    if (!data.ok) throw Error("")
+
+    if (!data.ok) {
+      console.log(data)
+      throw Error("")
+    }
 
     return data.json()
   } catch(e) {

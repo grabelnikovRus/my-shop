@@ -1,0 +1,23 @@
+.root {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 40px);
+  gap: 8px;
+  justify-content: center;
+}
+
+.root button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.current {
+  background: var(--black);
+  color: var(--white);
+}

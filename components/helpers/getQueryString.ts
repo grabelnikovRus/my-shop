@@ -6,7 +6,6 @@ export const getQueryString = <T extends object>(
 ) => {
   const params = new URLSearchParams(searchParams.toString())
 
-  
   Object.entries(state).forEach(([name, value]) => {
     if (typeof value === "object" && value !== null) {
       Object.entries(value as object).forEach(([n, v]) => {
@@ -20,7 +19,7 @@ export const getQueryString = <T extends object>(
       (name === "name" && !value) || name === "price"
     ) return
 
-    if (name === "discounted" || name === "categoryId") {
+    if (["discounted", "offset", "categoryId"].includes(name)) {
       if (value && value !== "0") {
         params.set(name, value)
       } else {

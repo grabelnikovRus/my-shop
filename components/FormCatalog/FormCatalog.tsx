@@ -1,13 +1,13 @@
 "use client"
+import { useEffect, useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { Select, Input, Range, Toggle } from "@/components";
 import { FormCatalogProps } from "./types";
+import { getQueryString } from "../helpers/getQueryString";
 import cn from "classnames"
 
 import s from "./FormCatalog.module.css"
-import { useEffect, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { getQueryString } from "./getQueryString";
 
 const defaultValues = {
   name: "",

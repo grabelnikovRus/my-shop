@@ -13,10 +13,9 @@ export const Search = ({ className, transformOnFocus = true }: SearchProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: unknown) => console.log(data);
 
   return (
     <form
