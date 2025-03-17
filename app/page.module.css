@@ -1,6 +1,21 @@
 .page {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 1fr;
+  font-family: var(--font-dm);
+  gap: 20px;
 
-
+  @media (min-width: 640px) {
+    gap: 40px;
+  }
 }
 
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: var(--accent);
+}
 

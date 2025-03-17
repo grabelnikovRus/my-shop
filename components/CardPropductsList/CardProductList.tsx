@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../Pagination/Pagination";
 
 
-export const CardProductList = () => {
+export const CardProductList = ({ home = false }) => {
   const [data, setData] = useState<IProducts>()
   const searchParams = useSearchParams()
 
@@ -32,7 +32,7 @@ export const CardProductList = () => {
           />
         ))}
       </ul>
-      <Pagination offset={data?.offset} totalProducts={data?.totalProducts} />
+      {!home && <Pagination offset={data?.offset} totalProducts={data?.totalProducts} />}
     </>
   )
 } 
