@@ -2,6 +2,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-bucket.hb.ru-msk.vkcs.cloud',
+        port: '',
+      },
+    ],
+  },
   webpack(config) {
     // @ts-ignore
     const fileLoaderRule = config.module.rules.find((rule) =>
